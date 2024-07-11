@@ -1,0 +1,21 @@
+name: Composite Action
+description: A composite action to build Laravel applications
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # or the version you are using
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Cache the app dependencies
+      uses: actions/cache@v4.0.2
+      with:
+        key: ${{ github.sha }}-next-app
+        path: ./vendor
