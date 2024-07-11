@@ -36,7 +36,7 @@ jobs:
     uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/release.yaml@VSLP-01
     with:
       node-version: '20'
-      
+
 #   push:
 #     name: Push
 #     needs: [test]
@@ -51,3 +51,4 @@ jobs:
 #     uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/deploy.yaml@VSLP-01
 #     secrets:
 #       KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+
