@@ -1,4 +1,4 @@
-name: "Build Reusable Workflow For Laravel app"
+name: "Build Next Application"
 
 on:
   workflow_call:
@@ -11,7 +11,7 @@ jobs:
     name: Build Next App
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout php
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
