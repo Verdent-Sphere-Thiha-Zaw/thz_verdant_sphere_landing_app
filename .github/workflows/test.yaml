@@ -19,8 +19,9 @@ jobs:
         id: cache
         uses: actions/cache@v4.0.2
         with:
-          path: ./vendor
-          key: next-app
+          path: |
+            node_modules
+          key: ${{ runner.os }}-node-app
 
       - name: Node install
         if: steps.cache.outputs.cache-hit != 'true'

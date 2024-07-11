@@ -17,6 +17,6 @@ runs:
 
     - name: Cache the app dependencies
       uses: actions/cache@v4.0.2
-      with:
-        key: ${{ github.sha }}-next-app
-        path: ./vendor
+      path: |
+            node_modules
+      key: ${{ runner.os }}-node-app
