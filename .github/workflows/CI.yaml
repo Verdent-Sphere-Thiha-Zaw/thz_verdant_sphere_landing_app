@@ -13,7 +13,7 @@ jobs:
     name: Build
     uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/build.yaml@VSLP-01
     with:
-        node-version: '16'
+        node-version: '20'
 
 #   test:
 #     name: Test
