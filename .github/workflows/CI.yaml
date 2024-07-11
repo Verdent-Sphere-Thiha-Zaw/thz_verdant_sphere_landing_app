@@ -34,7 +34,9 @@ jobs:
     name: Release
     needs: [test]
     uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/release.yaml@VSLP-01
-
+    with:
+      node-version: '20'
+      
 #   push:
 #     name: Push
 #     needs: [test]
