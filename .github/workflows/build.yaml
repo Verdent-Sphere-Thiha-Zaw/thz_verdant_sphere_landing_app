@@ -8,13 +8,13 @@ on:
         type: string
 jobs:
   build:
-    name: Build Laravel App
+    name: Build Next App
     runs-on: ubuntu-latest
     steps:
       - name: Checkout php
         uses: actions/checkout@v4
 
-      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
+      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/C:\Users\Thiha\OneDrive\Desktop\verdant sphere\verdant-sphere-landing-page-main\verdant-sphere-landing-page-main\.github\prepare-action@VSLP-01
 
       - name: Build the app
         run: npm run build
