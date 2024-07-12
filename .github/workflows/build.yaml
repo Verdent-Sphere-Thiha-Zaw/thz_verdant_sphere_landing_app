@@ -15,7 +15,9 @@ jobs:
         uses: actions/checkout@v4
 
       - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
-
+        with:
+          node-version: ${{ inputs.node-version }}
+          
       - name: Build the app
         run: |
           npm run build

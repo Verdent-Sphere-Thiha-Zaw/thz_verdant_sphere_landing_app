@@ -15,22 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Restore the cache
-        id: cache
-        uses: actions/cache@v4.0.2
+      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-app
-
-      - name: Node install
-        if: steps.cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # or the version you are using
-
-      - name: npm install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
-
+          node-version: ${{ inputs.node-version }}
+          
       - name: Test the App
         run: npm test
