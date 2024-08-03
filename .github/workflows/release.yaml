@@ -1,0 +1,29 @@
+name: "Release Next App"
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: release Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4    
+        with:
+          name: my-artifacts
+          path: .next

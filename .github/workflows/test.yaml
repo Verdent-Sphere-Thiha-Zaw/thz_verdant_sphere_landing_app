@@ -1,0 +1,23 @@
+name: "Test Next App"
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+
+jobs:
+  build:
+    name: Testing Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
+        with:
+          node-version: ${{ inputs.node-version }}
+          
+      - name: Test the App
+        run: npm test

@@ -1,0 +1,30 @@
+name: "Build Next Application"
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+jobs:
+  build:
+    name: Build Next App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/prepare-action@VSLP-01
+        with:
+          node-version: ${{ inputs.node-version }}
+          
+      - name: Build the app
+        run: |
+          npm run build
+
+      - name: Cache the app dependencies
+        uses: actions/cache@v4.0.2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-app
+
