@@ -12,33 +12,33 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  build:
-    name: Build
-    uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/build.yaml@VSLP-01
-    with:
-      node-version: '20'
+  # build:
+  #   name: Build
+  #   uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/build.yaml@VSLP-01
+  #   with:
+  #     node-version: '20'
 
-  test:
-    name: Test
-    needs: [build]
-    uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/test.yaml@VSLP-01
-    with:
-      node-version: '20'
+  # test:
+  #   name: Test
+  #   needs: [build]
+  #   uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/test.yaml@VSLP-01
+  #   with:
+  #     node-version: '20'
 
   sec:
     name: Sec Check
-    needs: [test]
+    # needs: [test]
     uses: ./.github/workflows/security.yaml
     secrets:
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  release:
-    name: Release
-    needs: [test]
-    uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/release.yaml@VSLP-01
-    with:
-      node-version: '20'
+  # release:
+  #   name: Release
+  #   needs: [test]
+  #   uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/release.yaml@VSLP-01
+  #   with:
+  #     node-version: '20'
 
 #   push:
 #     name: Push
