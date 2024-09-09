@@ -1,7 +1,8 @@
 name: "CI Workflow"
 on:
-    push:
     pull_request:
+      types: [opened, synchronize, reopened]
+    push:
       branches:
         - VSLP-01
         - main
