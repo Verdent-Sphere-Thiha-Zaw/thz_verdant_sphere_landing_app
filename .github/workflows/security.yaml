@@ -1,12 +1,13 @@
 name: Build
 on:
-    pull_request:
-        types: [opened, synchronize, reopened]
-    #   secrets:
-    #     GIT_TOKEN:
-    #       required: true
-    #     SONAR_TOKEN:
-    #       required: true
+  workflow_call:
+      secrets:
+        GIT_TOKEN:
+          required: true
+        SONAR_TOKEN:
+          required: true
+permissions:
+  checks: write
 jobs:
   sonarcloud:
     name: SonarCloud
