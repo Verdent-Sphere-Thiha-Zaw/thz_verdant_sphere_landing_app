@@ -6,8 +6,6 @@ on:
           required: true
         SONAR_TOKEN:
           required: true
-permissions:
-  checks: write
 jobs:
   sonarcloud:
     name: SonarCloud
