@@ -1,12 +1,12 @@
 name: Build
 on:
-    workflow_call:
-      secrets:
-        GIT_TOKEN:
-          required: true
-        SONAR_TOKEN:
-          required: true
-
+    pull_request:
+        types: [opened, synchronize, reopened]
+    #   secrets:
+    #     GIT_TOKEN:
+    #       required: true
+    #     SONAR_TOKEN:
+    #       required: true
 jobs:
   sonarcloud:
     name: SonarCloud
