@@ -28,7 +28,7 @@ jobs:
     needs: [test]
     uses: ./.github/workflows/security.yaml
     secrets:
-      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+      PAT: ${{ secrets.PAT }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   release:

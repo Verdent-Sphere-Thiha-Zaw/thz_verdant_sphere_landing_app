@@ -2,7 +2,7 @@ name: Build
 on:
   workflow_call:
       secrets:
-        GIT_TOKEN:
+        PAT:
           required: true
         SONAR_TOKEN:
           required: true
@@ -18,13 +18,6 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.PAT }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          args: >
-            -Dsonar.organization=verdent-sphere-org
-            -Dsonar.projectKey=verdent-sphere-org_vslp-henops
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=lib/
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.verbose=true
+  
