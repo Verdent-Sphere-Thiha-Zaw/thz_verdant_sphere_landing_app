@@ -1,7 +1,8 @@
 name: "CI Workflow"
 on:
-    push:
     pull_request:
+      types: [opened, synchronize, reopened]
+    push:
       branches:
         - VSLP-01
         - main
@@ -22,13 +23,13 @@ jobs:
     with:
       node-version: '20'
 
-#   sec:
-#     name: Sec Check
-#     needs: [test]
-#     uses: Verdent-Sphere-Thiha-Zaw/thz_verdant_sphere_landing_app/.github/workflows/security.yaml@VSLP-01
-#     secrets:
-#       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-#       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  sec:
+    name: Sec Check
+    needs: [test]
+    uses: ./.github/workflows/security.yaml
+    secrets:
+      PAT: ${{ secrets.PAT }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   release:
     name: Release
